@@ -15,6 +15,7 @@ test('Verify User Can Sign Out After Login', async ({ page }) => {
 
   // Step 4: Click the Sign in button
   await page.getByRole('button', { name: 'Sign in' }).click();
+  await expect(page).not.toHaveURL(/\/login/);
   await expect(page.getByRole('button', { name: 'Sign out' })).toBeVisible();
 
   // Step 5: Click the menu icon
